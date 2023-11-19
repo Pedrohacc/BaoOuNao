@@ -9,6 +9,8 @@ const Home = () => {
   const { state } = useLocation();
   const [usuarioDecodificado, setUsuarioDecodificado] = useState(state?.usuarioDecodificado);
 
+  console.log('',usuarioDecodificado);
+
   useEffect(() => {
     // Atualiza o estado local se o objeto for alterado
     setUsuarioDecodificado(state?.usuarioDecodificado);
