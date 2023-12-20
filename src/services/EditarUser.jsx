@@ -37,7 +37,7 @@ export const EditarUser = async (id,nome,
       console.log(usuario);   
     
     try {
-      const resposta = await fetch(`http://localhost:8080/usuarios/${id}`, {
+      const resposta = await fetch(`https://baoounao.iftmparacatu.app.br/usuarios/${id}`, {
         method: "PUT",
         body: JSON.stringify(usuario),
         headers: {

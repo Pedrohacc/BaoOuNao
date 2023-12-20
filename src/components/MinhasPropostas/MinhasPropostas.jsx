@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { listCat } from '../../services/CatHome';
+import React, { useEffect, useState } from "react";
+import { listCat } from "../../services/CatHome";
 import { jwtDecode } from "jwt-decode";
 
-
-
-const MinhasPropostas = ({setValidaCadMinhaPropostas}) => {
+const MinhasPropostas = ({ setValidaCadMinhaPropostas }) => {
   const [propostas, setPropostas] = useState([]);
-  const token = localStorage.getItem('TokenBaoOuNao');
+  const token = localStorage.getItem("TokenBaoOuNao");
   const usuarioDecodificado = jwtDecode(token);
-
 
   function closeModal() {
     setValidaCadMinhaPropostas(false);
     document.getElementById("my-modalMinhasPropostas").classList.add("hidden");
     window.location.reload();
   }
-  
+
   useEffect(() => {
     const fetchPropostasDoUsuario = async () => {
       try {
         await listCat(token, setPropostas);
       } catch (error) {
-        console.error('Erro ao obter propostas do usuário:', error);
+        console.error("Erro ao obter propostas do usuário:", error);
       }
     };
 
@@ -29,7 +26,10 @@ const MinhasPropostas = ({setValidaCadMinhaPropostas}) => {
   }, []);
   return (
     <>
-      <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modalMinhasPropostas">
+      <div
+        class="fixed z-10 inset-0 overflow-y-auto"
+        id="my-modalMinhasPropostas"
+      >
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-200 opacity-75"></div>
@@ -47,58 +47,89 @@ const MinhasPropostas = ({setValidaCadMinhaPropostas}) => {
             <div>
               {propostas !== null ? (
                 <ul className="pt-1 pb-2 px-3 overflow-y-auto ">
-                
-
                   {propostas &&
                     propostas
-                    .filter((proposta) => proposta.usuario.id === usuarioDecodificado.id)
-                     .map((proposta, index) => (
+                      .filter(
+                        (proposta) =>
+                          proposta.usuario.id === usuarioDecodificado.id
+                      )
+                      .map((proposta, index) => (
                         <li key={index} className="mt-2">
                           <span className="p-5 flex flex-col justify-between bg-gray-100 dark:bg-gray-100 rounded-lg cursor-pointer">
-                            
-                              <div class=" rounded-sm relative">
-                                <div class="text-left">
-                                  {proposta.situacao === "ANALISE" && (
-                                    <span class=" absolute top-0 right-0 inline-block rounded-full text-white bg-yellow-500 px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
+                            {console.log(proposta.categoria)}
+                            <div class=" rounded-sm relative">
+                              <div class="text-left">
+                                {proposta.situacao === "ANALISE" && (
+                                  <div class="flex justify-end">
+                                    <span class="inline-block border rounded-xl  bg-yellow-100 text-yellow-500 border-yellow-500 px-2 py-1 text-xs font-semibold mr-3 cursor-pointer">
+                                      <span class="capitalize">
+                                        {proposta.categoria}
+                                      </span>
+                                    </span>
+
+                                    <span class="inline-block rounded-full text-white bg-yellow-500 px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
                                       Em análise
                                     </span>
-                                  )}
-                                  {proposta.situacao === "RECUSADA" && (
-                                    <span class=" absolute top-0 right-0 inline-block rounded-full text-white bg-secundaria px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
-                                      Recusada
+                                  </div>
+                                )}
+                                {proposta.situacao === "RECUSADA" && (
+                                  <div class="flex justify-end">
+                                  <span class="inline-block border rounded-xl  bg-red-100 text-secundaria border-secundaria px-2 py-1 text-xs font-semibold mr-3 cursor-pointer">
+                                    <span class="capitalize">
+                                      {proposta.categoria}
                                     </span>
-                                  )}
-                                  {proposta.situacao === "APROVADA" && (
-                                    <span class=" absolute top-0 right-0 inline-block rounded-full text-white bg-primaria px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
-                                      Aprovada
-                                    </span>
-                                  )}
-                                  {proposta.situacao === "A_REFAZER" && (
-                                    <span class=" absolute top-0 right-0 inline-block rounded-full text-white bg-black px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
-                                      A refazer
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-                            
+                                  </span>
 
-                            <span className='font-semibold text-cinza'>{proposta.titulo}</span>
+                                  <span class="inline-block rounded-full text-white bg-secundaria px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
+                                   Recusada
+                                  </span>
+                                </div>
+                                )}
+                                {proposta.situacao === "APROVADA" && (
+                                  <div class="flex justify-end">
+                                  <span class="inline-block border rounded-xl  bg-green-100 text-primaria border-primaria px-2 py-1 text-xs font-semibold mr-3 cursor-pointer">
+                                    <span class="capitalize">
+                                      {proposta.categoria}
+                                    </span>
+                                  </span>
+
+                                  <span class="inline-block rounded-full text-white bg-primaria px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
+                                   Aprovada
+                                  </span>
+                                </div>
+                                )}
+                                {proposta.situacao === "A_REFAZER" && (
+                                   <div class="flex justify-end">
+                                   <span class="inline-block border rounded-xl  bg-slate-400 text-black border-black px-2 py-1 text-xs font-semibold mr-3 cursor-pointer">
+                                     <span class="capitalize">
+                                       {proposta.categoria}
+                                     </span>
+                                   </span>
+ 
+                                   <span class="inline-block rounded-full text-white bg-black px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
+                                    A refazer 
+                                   </span>
+                                 </div>
+                                )}
+                              </div>
+                            </div>
+
+                            <span className="font-semibold text-cinza">
+                              {proposta.titulo}
+                            </span>
                             <p className="text-xs font-normal leading-snug text-gray-600 my-3">
                               {proposta.descricao}
                             </p>
 
-                            
-                            
                             <div class="relative mt-3">
-                              {proposta.feedback !=="" &&(
-                              <label className=" float-right text-xs">
-                                <strong>  Feedback:  </strong>{proposta.feedback}
-                              
-                              </label>
+                              {proposta.feedback !== "" && (
+                                <label className=" float-right text-xs">
+                                  <strong> Feedback: </strong>
+                                  {proposta.feedback}
+                                </label>
                               )}
                             </div>
                           </span>
-                          
                         </li>
                       ))}
                 </ul>

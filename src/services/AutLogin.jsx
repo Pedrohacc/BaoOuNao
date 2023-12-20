@@ -8,7 +8,7 @@ export const handleSubmit = async (login, senha) => {
   };
 
   try {
-    const resposta = await fetch("http://localhost:8080/login", {
+    const resposta = await fetch("https://baoounao.iftmparacatu.app.br/login", {
       method: "POST",
       body: JSON.stringify(usuario),
       headers: { "Content-type": "application/json" },

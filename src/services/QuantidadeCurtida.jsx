@@ -2,7 +2,7 @@ export const ListQuantidadeCurtidas = async (id) => {
     const token = localStorage.getItem("TokenBaoOuNao");
     try {
       const response = await fetch(
-        `http://localhost:8080/curtir/contar/${id}`,
+        `https://baoounao.iftmparacatu.app.br/curtir/contar/${id}`,
         {
           method: "GET",
           headers: {

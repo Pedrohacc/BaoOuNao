@@ -4,7 +4,7 @@ export const ListCategoria = async (setCategorias) => {
   const token = localStorage.getItem("TokenBaoOuNao");
   try {
     const response = await fetch(
-      "http://localhost:8080/propostas/retornarCategoria",
+      "https://baoounao.iftmparacatu.app.br/propostas/retornarCategoria",
       {
         method: "GET",
         headers: {

@@ -4,7 +4,7 @@ export const ListUsuarios = async (setUsuarios) => {
     const token = localStorage.getItem("TokenBaoOuNao");
     try {
       const response = await fetch(
-        "http://localhost:8080/usuarios",
+        "https://baoounao.iftmparacatu.app.br/usuarios",
         {
           method: "GET",
           headers: {

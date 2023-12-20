@@ -1,6 +1,6 @@
 export const  listCat = async( token, setPropostas) => {
     try {
-        const response = await fetch('http://localhost:8080/propostas', {
+        const response = await fetch('https://baoounao.iftmparacatu.app.br/propostas', {
             method: "GET",
             headers: {
               "Content-type": "application/json",

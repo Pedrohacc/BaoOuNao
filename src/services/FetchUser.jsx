@@ -2,7 +2,7 @@ export const fetchUsuario = async (token, id, setUsuario) => {
 
   console.log(token + "" + id + "")
     try {
-      const response = await fetch(`http://localhost:8080/usuarios/${id}`, {
+      const response = await fetch(`https://baoounao.iftmparacatu.app.br/usuarios/${id}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",

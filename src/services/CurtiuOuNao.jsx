@@ -6,7 +6,7 @@ export const CurtiuOuNao  = async (idUser,idProposta) => {
   try {
     
     const response = await fetch(
-      `http://localhost:8080/curtir/existe/${usuarioDecodificado.id}/${idProposta}`,
+      `https://baoounao.iftmparacatu.app.br/curtir/existe/${usuarioDecodificado.id}/${idProposta}`,
       {
         method: "GET",
         headers: {

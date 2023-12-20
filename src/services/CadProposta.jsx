@@ -19,7 +19,7 @@ descricao,
   };
 console.log(proposta)
   try {
-    const resposta = await fetch("http://localhost:8080/propostas", {
+    const resposta = await fetch("https://baoounao.iftmparacatu.app.br/propostas", {
       method: "POST",
       body: JSON.stringify(proposta),
       headers: { "Content-type": "application/json",

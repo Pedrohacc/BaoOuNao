@@ -35,7 +35,7 @@ export const handleSubmitUsuario = async ( nome,
       };
       console.log(usuario);    
       try {
-        const resposta = await fetch("http://localhost:8080/usuarios", {
+        const resposta = await fetch("https://baoounao.iftmparacatu.app.br/usuarios", {
           method: "POST",
           body: JSON.stringify(usuario),
           headers: { "Content-type": "application/json",

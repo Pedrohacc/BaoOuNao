@@ -8,7 +8,7 @@ export const ModerarProp = async (proposta, situacao, feedback, setAlterar ) => 
 
   
   try {
-    const resposta = await fetch(`http://localhost:8080/propostas/moderar/${id}`, {
+    const resposta = await fetch(`https://baoounao.iftmparacatu.app.br/propostas/moderar/${id}`, {
       method: "PATCH",
       body: JSON.stringify(alteracao),
       headers: {

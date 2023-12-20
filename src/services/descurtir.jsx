@@ -5,7 +5,7 @@ export const descurtida = async (idProposta) => {
     let usuarioDecodificado = jwtDecode(token);
     console.log(idProposta)
     try {
-      const resposta = await fetch(`http://localhost:8080/curtir/${usuarioDecodificado.id}/${idProposta}`, {
+      const resposta = await fetch(`https://baoounao.iftmparacatu.app.br/curtir/${usuarioDecodificado.id}/${idProposta}`, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",

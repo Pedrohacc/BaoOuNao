@@ -85,9 +85,17 @@ const Moderar = ({ setValidaCadModerator }) => {
                               <div class=" rounded-sm relative">
                                 <div class="text-left">
                                   {proposta.situacao === "ANALISE" && (
-                                    <span class=" absolute top-0 right-0 inline-block rounded-full text-white bg-yellow-500 px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
+                                    <div class="flex justify-end">
+                                    <span class="inline-block border rounded-xl  bg-yellow-100 text-yellow-500 border-yellow-500 px-2 py-1 text-xs font-semibold mr-3 cursor-pointer">
+                                      <span class="capitalize">
+                                        {proposta.categoria}
+                                      </span>
+                                    </span>
+
+                                    <span class="inline-block rounded-full text-white bg-yellow-500 px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
                                       Em análise
                                     </span>
+                                  </div>
                                   )}
                                   {proposta.situacao === "RECUSADA" && (
                                     <span class=" absolute top-0 right-0 inline-block rounded-full text-white bg-secundaria px-2 py-1 text-xs font-bold mr-3 cursor-pointer">
@@ -109,7 +117,7 @@ const Moderar = ({ setValidaCadModerator }) => {
                             )}
 
                             <span>{proposta.titulo}</span>
-                            <p className="text-sm font-medium leading-snug text-gray-600 my-3">
+                            <p className="text-xs  font-normal leading-snug text-gray-600 my-3">
                               {proposta.descricao}
                             </p>
 
@@ -167,8 +175,7 @@ const Moderar = ({ setValidaCadModerator }) => {
                                         placeholder="Feedback"
                                         
                                         autoComplete="given-name"
-                                        className="pl-2 block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
-                                  placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
+                                        className="pl-2 block w-3/4 rounded-md  border-[#e0e0e0] bg-white py-2 px-6 text-sm font-light text-cinza outline-none focus:border-primaria focus:shadow-sm"
                                         onChange={(e) =>
                                           setFeedback(e.target.value)
                                         }

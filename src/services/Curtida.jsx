@@ -11,7 +11,7 @@ export const curtida = async ( IdProp ) => {
 
   console.log(curtida)
   try {
-    const resposta = await fetch("http://localhost:8080/curtir", {
+    const resposta = await fetch("https://baoounao.iftmparacatu.app.br/curtir", {
       method: "POST",
       body: JSON.stringify(curtida),
       headers: { "Content-type": "application/json",
