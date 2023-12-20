@@ -1,18 +1,19 @@
 import React from "react";
 
 
-const LoginErr = ({ error, setValidaPop }) => {
+const Sucesso = ({ sucess, setPopup}) => {
 
-  function closeModal() {
-    document.getElementById("my-modalerror").classList.add("hidden");
-    setValidaPop(false);
-    
 
-   
-  }
+    function closeModal() {
+        document.getElementById("my-modal").classList.add("hidden");
+        setPopup(false);
+        window.location.reload();
+        
+      };
+
   return (
     <>
-      <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modalerror">
+        <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modalsucss">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-50 opacity-75"></div>
@@ -30,9 +31,9 @@ const LoginErr = ({ error, setValidaPop }) => {
             aria-labelledby="modal-headline"
           >
             <div>
-              <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+              <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-200">
                 <svg
-                  class="h-6 w-6 text-red-600"
+                  class="h-6 w-6 text-green-600" // Altere a classe de cor conforme necessário
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -43,7 +44,7 @@ const LoginErr = ({ error, setValidaPop }) => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
+                    d="M5 13l4 4L19 7"
                   />
                 </svg>
               </div>
@@ -52,16 +53,16 @@ const LoginErr = ({ error, setValidaPop }) => {
                   class="text-lg leading-6 font-medium text-gray-900"
                   id="modal-headline"
                 >
-                  Erro
+                  Sucesso
                 </h3>
                 <div class="mt-2">
-                  <p class="text-sm text-gray-500">{error}</p>
+                  <p class="text-sm text-gray-500">{sucess}</p>
                 </div>
               </div>
             </div>
             <div class="mt-5 sm:mt-6">
               <button
-                class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm"
+                class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-primaria text-base font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm"
                 onClick={closeModal}
               >
                 OK
@@ -74,4 +75,4 @@ const LoginErr = ({ error, setValidaPop }) => {
   );
 };
 
-export default LoginErr;
+export default Sucesso;

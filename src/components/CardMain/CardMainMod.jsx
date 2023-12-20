@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../Nav/Nav";
 import Aside from "../aside/aside";
 import { useState, useEffect } from "react";
 import { fetchUsuario } from "../../services/FetchUser";
@@ -11,18 +10,19 @@ import { curtida } from "../../services/Curtida";
 import { descurtida } from "../../services/descurtir";
 import ErrCurtida from "../Erros/ErrCurtida";
 import { CurtiuOuNao } from "../../services/CurtiuOuNao";
+import NavMod  from "../Nav/NavMod"
 
 
-const CardMain = (  ) => {
+const CardMainMod = () => {
   const [usuario, setUsuario] = useState('');
+  const token = localStorage.getItem("TokenBaoOuNao");
+  const usuarioDecodificado = jwtDecode(token);
+  const idUsuario =  usuarioDecodificado.id;
   const [catego, setCatego] = useState(null);
   const [propostas, setPropostas] = useState(null);
   const [curtidas, setCurtidas] = useState(null);
   const [ErrorCurtida, setErrorCurtida] = useState(false);
-  const [error, setError] = useState('');
-  const token = localStorage.getItem("TokenBaoOuNao");
-  const usuarioDecodificado = jwtDecode(token);
-  const idUsuario =  usuarioDecodificado.id;
+  const [error, setError] = useState('')
   const [verificacoes, setVerificacoes] = useState({});
   const [updateTrigger, setUpdateTrigger] = useState(false);
 
@@ -144,12 +144,12 @@ const handleToggleCurtida = async (idUsuario, proposta) => {
   return (
     <>
       <div className="h-screen w-full flex overflow-hidden select-none">
-        <Nav/>
+        <NavMod/>
         <main
           className="my-1 pt-2 pb-2 px-10 flex-1 bg-white
 		transition duration-500 ease-in-out overflow-y-auto"
         >
-         <div className="flex flex-col capitalize text-3xl px-3">
+          <div className="flex flex-col capitalize text-3xl px-3">
             <span className="font-semibold">Bem Vindo, <span className="font-light">{usuario.nome} </span>
            
             </span>
@@ -274,4 +274,4 @@ const handleToggleCurtida = async (idUsuario, proposta) => {
   );
 };
 
-export default CardMain;
+export default CardMainMod;

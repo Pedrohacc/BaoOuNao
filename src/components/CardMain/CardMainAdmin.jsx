@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../Nav/Nav";
 import Aside from "../aside/aside";
 import { useState, useEffect } from "react";
 import { fetchUsuario } from "../../services/FetchUser";
@@ -11,9 +10,10 @@ import { curtida } from "../../services/Curtida";
 import { descurtida } from "../../services/descurtir";
 import ErrCurtida from "../Erros/ErrCurtida";
 import { CurtiuOuNao } from "../../services/CurtiuOuNao";
+import NavAdmin from "../Nav/NavAdmin";
 
 
-const CardMain = (  ) => {
+const  CardMainAdmin = () => {
   const [usuario, setUsuario] = useState('');
   const [catego, setCatego] = useState(null);
   const [propostas, setPropostas] = useState(null);
@@ -144,19 +144,21 @@ const handleToggleCurtida = async (idUsuario, proposta) => {
   return (
     <>
       <div className="h-screen w-full flex overflow-hidden select-none">
-        <Nav/>
+        <NavAdmin/>
         <main
           className="my-1 pt-2 pb-2 px-10 flex-1 bg-white
 		transition duration-500 ease-in-out overflow-y-auto"
         >
-         <div className="flex flex-col capitalize text-3xl px-3">
+          <div className="flex flex-col capitalize text-3xl px-3">
             <span className="font-semibold">Bem Vindo, <span className="font-light">{usuario.nome} </span>
            
             </span>
+          
+            
           </div>
           <div className="flex">
             <div
-              className="mr-6 w-11/12 mt-8 py-2 flex-shrink-0 mx-auto flex flex-col bg-white
+              className="mr-6 w-11/12 mt-8 py-2 flex-shrink-0  flex flex-col bg-white
 			"
             >
         {   //   <h3
@@ -269,9 +271,10 @@ const handleToggleCurtida = async (idUsuario, proposta) => {
                         <ErrCurtida error={error} setErrorCurtida={setErrorCurtida} />
                       )}
         <Aside setCatego={setCatego} />
+        {console.log(catego)}
       </div>
     </>
   );
 };
 
-export default CardMain;
+export default CardMainAdmin;

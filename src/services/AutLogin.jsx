@@ -1,16 +1,8 @@
 import { jwtDecode } from "jwt-decode";
 
-
-
-
-
-   
-
-
-
 export const handleSubmit = async (login, senha) => {
    
-  const usuario = {
+  const usuario = { 
     login,
     senha,
   };
@@ -22,10 +14,13 @@ export const handleSubmit = async (login, senha) => {
       headers: { "Content-type": "application/json" },
     });
      
-    const resultado = await resposta.text();
+    const resultado = await resposta.json();
+
+    
 
     if (resultado !== "") {
-      const token = resultado;
+      const token = resultado.token;
+     
       const usuarioDecodificado = jwtDecode(token);
       localStorage.setItem("TokenBaoOuNao", token);
    
@@ -37,9 +32,11 @@ export const handleSubmit = async (login, senha) => {
     }
   } catch (erro) {
     
-    console.error("Erro durante o login:", erro);
+    console.error("Erro durante o login:", erro); 
     return { sucesso: false, erro: "Erro na Requisição ao Servidor, favor procurar o suporte" };
+    
   }
+  
 
 
 };

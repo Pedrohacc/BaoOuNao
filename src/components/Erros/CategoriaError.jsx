@@ -1,10 +1,9 @@
 import React from "react";
 
 
-const LoginErr = ({ error, setValidaPop }) => {
-
+const CategoriaError = ({ error, setValidaPop }) => {
   function closeModal() {
-    document.getElementById("my-modalerror").classList.add("hidden");
+    document.getElementById("my-modalCatego").classList.add("hidden");
     setValidaPop(false);
     
 
@@ -12,7 +11,7 @@ const LoginErr = ({ error, setValidaPop }) => {
   }
   return (
     <>
-      <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modalerror">
+      <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modalCatego">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-50 opacity-75"></div>
@@ -73,5 +72,4 @@ const LoginErr = ({ error, setValidaPop }) => {
     </>
   );
 };
-
-export default LoginErr;
+export default CategoriaError;
