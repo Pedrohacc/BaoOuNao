@@ -19,6 +19,7 @@ const Moderar = ({ setValidaCadModerator }) => {
   function closeModal() {
     setValidaCadModerator(false);
     document.getElementById("my-modalModerar").classList.add("hidden");
+    window.location.reload();
   }
 
   function editar(proposta) {

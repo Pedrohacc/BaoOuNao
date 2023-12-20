@@ -13,6 +13,7 @@ const MinhasPropostas = ({setValidaCadMinhaPropostas}) => {
   function closeModal() {
     setValidaCadMinhaPropostas(false);
     document.getElementById("my-modalMinhasPropostas").classList.add("hidden");
+    window.location.reload();
   }
   
   useEffect(() => {

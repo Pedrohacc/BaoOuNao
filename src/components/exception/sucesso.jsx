@@ -7,13 +7,13 @@ const Sucesso = ({ sucess, setPopup}) => {
     function closeModal() {
         document.getElementById("my-modal").classList.add("hidden");
         setPopup(false);
-        window.location.reload();
+        
         
       };
 
   return (
     <>
-        <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modalsucss">
+        <div class="fixed z-10 inset-0 overflow-y-auto" id="my-modal">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 transition-opacity" aria-hidden="true">
             <div class="absolute inset-0 bg-gray-50 opacity-75"></div>

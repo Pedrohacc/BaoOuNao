@@ -138,8 +138,9 @@ const handleToggleCurtida = async (idUsuario, proposta) => {
 };
 
 
+useEffect(() => {
 
-
+}, [propostas]);
   
   return (
     <>

@@ -30,6 +30,7 @@ const CadastrarProp = ({ setValidaCad }) => {
   function closeModal() {
     document.getElementById("my-modalCadPropPrincipal").classList.add("hidden");
     setValidaCad(false);
+    window.location.reload();
   }
   const handleCheckboxChange = () => {
     // Atualiza o estado do checkbox para o oposto do estado atual

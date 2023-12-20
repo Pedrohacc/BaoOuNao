@@ -29,7 +29,7 @@ const Admin = ({ setValidaAdmin }) => {
 
   useEffect(() => {
     ListUsuarios(setUsuarios);
-  }, []);
+  }, [pressiona]);
 
   function closeModal() {
     setValidaAdmin(false);
